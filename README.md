@@ -36,11 +36,11 @@
 
 <hr>
 <pre>
-    <p align="center">
-        <img src="screenshot/signin.png" width="10%">
-        <img src="screenshot/list.png" width="10%">
-        <img src="screenshot/detail.png" width="10%">
-        <img src="screenshot/responsive.png" width="10%">
+    <p align="right" width="100%">
+        <img src="screenshot/signin.png" width="20%">
+        <img src="screenshot/list.png" width="20%">
+        <img src="screenshot/detail.png" width="20%">
+        <img src="screenshot/responsive.png" width="20%">
     </p>
 </pre>
 <hr>
