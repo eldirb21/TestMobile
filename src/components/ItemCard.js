@@ -49,7 +49,7 @@ export default function ItemCard({item, scale, onPressItem}) {
             </View>
             <View>
               <Text style={{color: '#000'}}>
-                {'IDR ' + Func.formatCurrent(item.price)}
+                {item.pair + ' ' + Func.formatCurrent(item.price)}
               </Text>
             </View>
           </View>
