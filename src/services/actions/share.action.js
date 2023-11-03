@@ -33,9 +33,6 @@ const fetchDataFilter =
     if (condition === '') {
       dispatch(fetchData());
     } else {
-      if (condition.length > 2) {
-        dispatch(fetchData());
-      }
       dispatch({type: GET_DATA_SUCCESS, payload: newData});
     }
   };
