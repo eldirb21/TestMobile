@@ -35,14 +35,12 @@
 ---
 
 
-<pre>
-   <div style="padding: 10px;">
-        <img src="screenshot/signin.png" width="20%">
-        <img src="screenshot/list.png" width="20%">
-        <img src="screenshot/detail.png" width="20%">
-        <img src="screenshot/responsive.png" width="20%">
-    </div>
-</pre>
+<div style="background-color: #DEFFE1; padding: 20px;">
+    <img src="screenshot/signin.png" width="20%">
+    <img src="screenshot/list.png" width="20%">
+    <img src="screenshot/detail.png" width="20%">
+    <img src="screenshot/responsive.png" width="20%">
+</div>
 
 ---
 
