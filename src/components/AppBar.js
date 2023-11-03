@@ -31,7 +31,12 @@ export default function AppBar({
             activeOpacity={0.8}
             onPress={onBack}
             style={{...styles.icons, marginRight: 5}}>
-            <Icons type={'Ionicons'} name={'chevron-back'} size={25} />
+            <Icons
+              type={'Ionicons'}
+              name={'chevron-back'}
+              size={25}
+              color="grey"
+            />
           </TouchableOpacity>
           <Texts bold>{title}</Texts>
         </View>
@@ -52,11 +57,11 @@ export default function AppBar({
               activeOpacity={0.8}
               onPress={onSearchClear}
               style={styles.icons}>
-              <Icons name={'close'} size={20} />
+              <Icons name={'close'} size={20} color="grey" />
             </TouchableOpacity>
           ) : (
             <View style={styles.icons}>
-              <Icons name={'search'} size={20} />
+              <Icons name={'search'} size={20} color="grey" />
             </View>
           )}
         </Animated.View>

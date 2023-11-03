@@ -78,7 +78,12 @@ export const Signin = props => {
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Icons type="Ionicons" name="person-circle-outline" size={100} />
+            <Icons
+              type="Ionicons"
+              name="person-circle-outline"
+              size={100}
+              color="grey"
+            />
             <Texts bold style={styles.title}>
               Sign In
             </Texts>

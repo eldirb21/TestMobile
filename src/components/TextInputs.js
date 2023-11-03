@@ -17,7 +17,7 @@ export default function TextInputs({
     <View style={styles.container}>
       <View style={[styles.body, {borderColor: errors ? 'red' : '#FFF'}]}>
         <View style={styles.icons}>
-          <Icons name={iconLeft} size={20} />
+          <Icons name={iconLeft} size={20} color="grey" />
         </View>
         <TextInput
           underlineColorAndroid={'transparent'}
@@ -35,6 +35,7 @@ export default function TextInputs({
               type="Ionicons"
               name={!secureTextEntry ? 'eye' : 'eye-off'}
               size={20}
+              color="grey"
             />
           </TouchableOpacity>
         )}
