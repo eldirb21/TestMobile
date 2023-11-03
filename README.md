@@ -4,6 +4,14 @@
 
 ##### [RELEASE DOWNLOAD](https://github.com/eldirb21/TestMobile/releases)
 
+#### USER ACCESS
+
+```sh
+- email email@jsonkeeper.com
+- password @Pass123!
+
+```
+
 ## Features
 
 ```sh
@@ -44,14 +52,6 @@
 ---
 
 ## Get Started
-
-#### USER ACCESS
-
-```sh
-- email email@jsonkeeper.com
-- password @Pass123!
-
-```
 
 #### 1. Installation IOS AND ANDROID
 
