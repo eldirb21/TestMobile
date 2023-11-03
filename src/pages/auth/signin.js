@@ -64,7 +64,7 @@ export const Signin = props => {
   const handleLogin = () => {
     if (!formValidate()) {
       if (Inputs.email === email && Inputs.password === passwordID) {
-        props.navigation.navigate('Home');
+        props.navigation.replace('Home');
       } else {
         Alert.alert('Failed', 'Account not Found!', [
           {text: 'Close', onPress: () => console.log('OK Pressed')},
