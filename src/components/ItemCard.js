@@ -61,10 +61,10 @@ export default function ItemCard({item, scale, onPressItem}) {
 
 const styles = StyleSheet.create({
   itemCard: {
-    opacity: 0.7,
+    opacity: 0.9,
     padding: 20,
     backgroundColor: '#FFF',
-    zIndex:9999
+    zIndex: 9999,
   },
   cardbtn: {
     flexDirection: 'row',

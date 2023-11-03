@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#FFF',
-    opacity: 0.8,
+    opacity: 0.9,
   },
   image: {
     height: 80,

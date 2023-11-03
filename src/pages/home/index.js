@@ -2,46 +2,27 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Animated, ImageBackground, StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
-import {fetchData} from '../../services/actions/share.action';
+import {fetchData, fetchDataFilter} from '../../services/actions/share.action';
 import AppBar from '../../components/AppBar';
 import ItemCard from '../../components/ItemCard';
 import {logos} from '../../assets/images';
+import ItemEmpty from '../../components/ItemEmpty';
 
 export const Home = props => {
-  const translation = useRef(new Animated.Value(-100)).current;
   const scrolly = useRef(new Animated.Value(0)).current;
-  const diffClamp = Animated.diffClamp(scrolly, 0, 64);
-  const translateY = diffClamp.interpolate({
-    inputRange: [0, 64],
-    outputRange: [0, -64],
-  });
-  const [headerShown, setHeaderShown] = useState(false);
   const [Search, setSearch] = useState('');
-
-  useEffect(() => {
-    Animated.timing(translation, {
-      toValue: !headerShown ? 0 : -100,
-      duration: 250,
-      useNativeDriver: true,
-    }).start();
-  }, [headerShown]);
 
   useEffect(() => {
     props.fetchData();
   }, []);
 
-  const handleScroll = event => {
-    const scrolling = event.nativeEvent.contentOffset.y;
-    if (scrolling > 100) {
-      setHeaderShown(true);
-    } else {
-      setHeaderShown(false);
-    }
-  };
   const handleSearch = val => {
     setSearch(val);
-    console.log(Search);
+    props.fetchDataFilter(val, props.share?.Items);
   };
+
+  const renderSeparator = () => <View style={styles.separator} />;
+  const renderEmpty = () => <ItemEmpty />;
 
   const renderItem = ({item, index}) => {
     let inputRange = [-1, 0, 150 * index, 150 * (index + 2)];
@@ -59,18 +40,16 @@ export const Home = props => {
     );
   };
 
-  const renderSeparator = () => <View style={styles.separator} />;
-
   return (
     <ImageBackground style={styles.container} source={logos}>
       <AppBar
-        translateY={translateY}
         value={Search}
         onChangeText={handleSearch}
         onSearchClear={() => setSearch('')}
       />
 
       <Animated.FlatList
+        style={styles.flatList}
         scrollEventThrottle={5}
         onScroll={Animated.event(
           [
@@ -83,7 +62,6 @@ export const Home = props => {
             },
           ],
           {
-            listener: handleScroll,
             useNativeDriver: true,
           },
         )}
@@ -91,6 +69,7 @@ export const Home = props => {
         data={props.share?.Items}
         ItemSeparatorComponent={renderSeparator}
         keyExtractor={(item, index) => index.toString()}
+        ListEmptyComponent={renderEmpty}
       />
     </ImageBackground>
   );
@@ -100,9 +79,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  flatList: {
+    flex: 1,
+    backgroundColor: '#FFF',
+    opacity: 0.9,
+  },
   separator: {
     height: 1,
-    opacity: 0.7,
+    opacity: 0.9,
     backgroundColor: 'rgba(0,0,0,.05)',
   },
 });
@@ -113,6 +97,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   fetchData,
+  fetchDataFilter,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

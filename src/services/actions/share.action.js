@@ -20,12 +20,29 @@ const fetchData = () => async dispatch => {
     dispatch({type: GET_DATA_FAILED, message: error});
   }
 };
+const fetchDataFilter =
+  (condition = '', data = []) =>
+  async dispatch => {
+    let newData = [...data].filter(
+      x =>
+        x.name?.toLowerCase().includes(condition?.toLowerCase()) ||
+        x.symbol?.toLowerCase().includes(condition?.toLowerCase()),
+    );
+    if (condition === '') {
+      dispatch(fetchData());
+    } else {
+      if (condition.length > 2) {
+        dispatch(fetchData());
+      }
+      dispatch({type: GET_DATA_SUCCESS, payload: newData});
+    }
+  };
 
 const doLogin = data => dispatch => {
   dispatch({type: LOGIN_USER});
 };
 
-export {fetchData, doLogin};
+export {fetchData, fetchDataFilter, doLogin};
 
 const data = [
   {

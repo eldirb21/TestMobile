@@ -11,12 +11,9 @@ import React from 'react';
 import Icons from './Icons';
 import Texts from './Texts';
 
-const Header_Max_Height = 64;
-const Header_Min_Height = 0;
-const Scroll_Distance = Header_Max_Height - Header_Min_Height;
+const Header_Max_Height = 60;
 
 export default function AppBar({
-  translateY,
   value,
   onChangeText,
   onSearchClear,
@@ -24,63 +21,59 @@ export default function AppBar({
   backable = false,
   onBack,
 }) {
-  return backable ? (
-    <View style={styles.customContainer}>
-      <TouchableOpacity
-        activeOpacity={0.8}
-        onPress={onBack}
-        style={{...styles.icons, marginRight: 5}}>
-        <Icons type={'Ionicons'} name={'chevron-back'} size={25} />
-      </TouchableOpacity>
-      <Texts bold>{title}</Texts>
-    </View>
-  ) : (
-    <Animated.View
-      style={{
-        ...styles.container,
-        transform: [{translateY: translateY}],
-      }}>
+  return (
+    <>
       <StatusBar barStyle={'dark-content'} backgroundColor={'#F1F1F1'} />
 
-      <View style={styles.searchContainer}>
-        <View style={styles.icons}>
-          <Icons name={'search'} size={20} />
-        </View>
-        <TextInput
-          value={value}
-          onChangeText={onChangeText}
-          placeholderTextColor={'grey'}
-          style={styles.textSearch}
-          placeholder="Search"
-        />
-        {value && (
+      {backable ? (
+        <View style={styles.customContainer}>
           <TouchableOpacity
             activeOpacity={0.8}
-            onPress={onSearchClear}
-            style={styles.icons}>
-            <Icons name={'close'} size={20} />
+            onPress={onBack}
+            style={{...styles.icons, marginRight: 5}}>
+            <Icons type={'Ionicons'} name={'chevron-back'} size={25} />
           </TouchableOpacity>
-        )}
-      </View>
-    </Animated.View>
+          <Texts bold>{title}</Texts>
+        </View>
+      ) : (
+        <Animated.View
+          style={{
+            ...styles.container,
+          }}>
+          <TextInput
+            value={value}
+            onChangeText={onChangeText}
+            placeholderTextColor={'grey'}
+            style={styles.textSearch}
+            placeholder="Cari Aset"
+          />
+          {value ? (
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={onSearchClear}
+              style={styles.icons}>
+              <Icons name={'close'} size={20} />
+            </TouchableOpacity>
+          ) : (
+            <View style={styles.icons}>
+              <Icons name={'search'} size={20} />
+            </View>
+          )}
+        </Animated.View>
+      )}
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFF',
-    alignItems: 'flex-end',
-    height: 55,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
+    height: Header_Max_Height,
     width: '100%',
     zIndex: 9999,
-  },
-  searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal: 10,
   },
   customContainer: {
     height: 55,
@@ -103,5 +96,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'OpenSans-Regular',
     height: '100%',
+    paddingLeft: 12,
   },
 });

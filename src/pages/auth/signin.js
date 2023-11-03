@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
     backgroundColor: '#FFF',
-    opacity: 0.8,
+    opacity: 0.9,
   },
   header: {
     alignItems: 'center',
