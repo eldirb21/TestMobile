@@ -33,8 +33,13 @@
 ## SCREENSHOT
 
 ---
-![Image 1](screenshot/signin.png) ![Image 2](screenshot/list.png) ![Image 3](screenshot/detail.png) ![Image 4](screenshot/responsive.png)
 
+<div style="border: 1px solid black; padding: 10px;">
+    <img src="screenshot/signin.png" width="20%">
+    <img src="screenshot/list.png" width="20%">
+    <img src="screenshot/detail.png" width="20%">
+    <img src="screenshot/responsive.png" width="20%">
+</div>
 <!-- <pre>
     <img src="screenshot/signin.png" width="20%">
     <img src="screenshot/list.png" width="20%">
