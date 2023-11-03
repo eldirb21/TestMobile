@@ -40,7 +40,7 @@
     <img src="screenshot/responsive.png" width="30%" >
 </p>
 ``` -->
-<pre>
+<!-- <pre>
 ```markdown
 <p align="center">
     <img src="screenshot/signin.png" width="30%">
@@ -49,7 +49,17 @@
     <img src="screenshot/responsive.png" width="30%">
 </p>
 ```
-</pre>
+</pre> -->
+---
+
+```html
+<p align="center">
+    <img src="screenshot/signin.png" width="30%">
+    <img src="screenshot/list.png" width="30%">
+    <img src="screenshot/detail.png" width="30%">
+    <img src="screenshot/responsive.png" width="30%">
+</p>
+
 
 ## Get Started
 
