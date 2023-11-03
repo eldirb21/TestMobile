@@ -1,8 +1,10 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable curly */
 import React, {useState} from 'react';
 import {
   Alert,
   ImageBackground,
+  ScrollView,
   StatusBar,
   StyleSheet,
   View,
@@ -73,30 +75,32 @@ export const Signin = props => {
   return (
     <ImageBackground style={styles.containerImage} source={logos}>
       <StatusBar barStyle={'dark-content'} backgroundColor={'#F1F1F1'} />
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Icons type="Ionicons" name="person-circle-outline" size={100} />
-          <Texts bold style={styles.title}>
-            Sign In
-          </Texts>
-        </View>
-        <TextInputs
-          value={Inputs.email}
-          onChangeText={val => handleChange('email', val)}
-          errors={errors.email}
-          placeholder="Enter Email"
-        />
-        <TextInputs
-          value={Inputs.password}
-          onChangeText={val => handleChange('password', val)}
-          errors={errors.password}
-          securePassword
-          iconLeft="key"
-          placeholder="Enter Password"
-        />
+      <ScrollView contentContainerStyle={{flexGrow: 1}}>
+        <View style={styles.container}>
+          <View style={styles.header}>
+            <Icons type="Ionicons" name="person-circle-outline" size={100} />
+            <Texts bold style={styles.title}>
+              Sign In
+            </Texts>
+          </View>
+          <TextInputs
+            value={Inputs.email}
+            onChangeText={val => handleChange('email', val)}
+            errors={errors.email}
+            placeholder="Enter Email"
+          />
+          <TextInputs
+            value={Inputs.password}
+            onChangeText={val => handleChange('password', val)}
+            errors={errors.password}
+            securePassword
+            iconLeft="key"
+            placeholder="Enter Password"
+          />
 
-        <Buttons title={'Masuk ke Akun'} onPress={handleLogin} />
-      </View>
+          <Buttons title={'Masuk ke Akun'} onPress={handleLogin} />
+        </View>
+      </ScrollView>
     </ImageBackground>
   );
 };
