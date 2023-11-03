@@ -34,14 +34,18 @@
 
 ---
 
-<hr>
-<pre>
+![Image 1](screenshot/signin.png)
+![Image 2](screenshot/list.png)
+![Image 3](screenshot/detail.png)
+![Image 4](screenshot/responsive.png)
+
+<!-- <pre>
     <img src="screenshot/signin.png" width="20%">
     <img src="screenshot/list.png" width="20%">
     <img src="screenshot/detail.png" width="20%">
     <img src="screenshot/responsive.png" width="20%">
-</pre>
-<hr>
+</pre> -->
+
 ---
 
 ## Get Started
