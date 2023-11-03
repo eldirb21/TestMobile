@@ -31,24 +31,16 @@
 - [@reduxjs/toolkit](https://redux-toolkit.js.org/) `1.9.7`
 
 ## SCREENSHOT
-
-<!-- ```sh
-<p align="center">
-    <img src="screenshot/signin.png" width="30%">
-    <img src="screenshot/list.png" width="30%">
-    <img src="screenshot/detail.png" width="30%" >
-    <img src="screenshot/responsive.png" width="30%" >
-</p>
-``` -->
+ 
 <pre>
-```sh
+<!-- ```sh -->
 <p align="center">
-    <img src="screenshot/signin.png" width="30%">
-    <img src="screenshot/list.png" width="30%">
-    <img src="screenshot/detail.png" width="30%">
-    <img src="screenshot/responsive.png" width="30%">
+    <img src="screenshot/signin.png" width="20%">
+    <img src="screenshot/list.png" width="20%">
+    <img src="screenshot/detail.png" width="20%">
+    <img src="screenshot/responsive.png" width="20%">
 </p>
-```
+<!-- ``` -->
 </pre>
 
 ## Get Started
