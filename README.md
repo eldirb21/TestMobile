@@ -34,6 +34,7 @@
 
 ---
 
+<hr>
 <pre>
     <p align="center">
         <img src="screenshot/signin.png" width="20%">
@@ -42,7 +43,7 @@
         <img src="screenshot/responsive.png" width="20%">
     </p>
 </pre>
-
+<hr>
 ---
 
 ## Get Started
