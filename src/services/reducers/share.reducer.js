@@ -4,6 +4,8 @@ const initialState = {
   loading: false,
   Items: [],
   messages: null,
+  userAuth: null,
+  status: null,
 };
 
 const homeReducer = (state = initialState, actions) => {
@@ -16,7 +18,13 @@ const homeReducer = (state = initialState, actions) => {
       return {...state, loading: false};
 
     case _.LOGIN_USER:
-      return {...state, loading: actions.loading, messages: actions.payload};
+      return {
+        ...state,
+        loading: actions.loading,
+        status: actions.status,
+        messages: actions.message,
+        userAuth: actions.data,
+      };
     default:
       return state;
   }

@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import {BASE_URL} from '@env';
 import {
   GET_DATA_FAILED,
@@ -5,6 +6,7 @@ import {
   GET_DATA_SUCCESS,
   LOGIN_USER,
 } from '../../utils/actionTypes';
+import {email, passwordID} from '@env';
 
 const fetchData = () => async dispatch => {
   dispatch({type: GET_DATA_LOAD});
@@ -37,11 +39,40 @@ const fetchDataFilter =
     }
   };
 
-const doLogin = data => dispatch => {
-  dispatch({type: LOGIN_USER});
+const resetdoLogin = () => dispatch => {
+  dispatch({
+    type: LOGIN_USER,
+    loading: false,
+    status: null,
+    messages: null,
+    userAuth: null,
+  });
 };
 
-export {fetchData, fetchDataFilter, doLogin};
+const doLogin = data => dispatch => {
+  dispatch({type: LOGIN_USER, loading: true});
+  setTimeout(() => {
+    if (data.email === email && data.password === passwordID) {
+      dispatch({
+        type: LOGIN_USER,
+        loading: false,
+        status: 'success',
+        data: data,
+        message: `Success', 'Account login successful!`,
+      });
+    } else {
+      dispatch({
+        type: LOGIN_USER,
+        loading: false,
+        status: 'error',
+        data: data,
+        message: `Failed', 'Account not Found!`,
+      });
+    }
+  }, 1000);
+};
+
+export {fetchData, fetchDataFilter, doLogin, resetdoLogin};
 
 const dataSample = [
   {

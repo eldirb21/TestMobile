@@ -1,6 +1,13 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useRef, useState} from 'react';
-import {Animated, ImageBackground, StyleSheet, View} from 'react-native';
+import {
+  ActivityIndicator,
+  Animated,
+  ImageBackground,
+  StyleSheet,
+  View,
+} from 'react-native';
 import {connect} from 'react-redux';
 import {fetchData, fetchDataFilter} from '../../services/actions/share.action';
 import AppBar from '../../components/AppBar';
@@ -22,7 +29,11 @@ export const Home = props => {
   };
 
   const renderSeparator = () => <View style={styles.separator} />;
-  const renderEmpty = () => <ItemEmpty />;
+  const renderEmpty = () => (!props.share.loading ? <ItemEmpty /> : null);
+  const renderHeader = () =>
+    props.share.loading && [...props.share?.Items]?.length <= 0 ? (
+      <ActivityIndicator style={{marginTop: 25}} color="grey" size={'large'} />
+    ) : null;
 
   const renderItem = ({item, index}) => {
     let inputRange = [-1, 0, 150 * index, 150 * (index + 2)];
@@ -44,6 +55,7 @@ export const Home = props => {
     <ImageBackground style={styles.container} source={logos}>
       <AppBar
         value={Search}
+        loading={props.share.loading}
         onChangeText={handleSearch}
         onSearchClear={() => setSearch('')}
       />
@@ -51,6 +63,7 @@ export const Home = props => {
       <Animated.FlatList
         style={styles.flatList}
         scrollEventThrottle={5}
+        ListHeaderComponent={renderHeader}
         onScroll={Animated.event(
           [
             {
@@ -67,6 +80,7 @@ export const Home = props => {
         )}
         renderItem={renderItem}
         data={props.share?.Items}
+        // data={[]}
         ItemSeparatorComponent={renderSeparator}
         keyExtractor={(item, index) => index.toString()}
         ListEmptyComponent={renderEmpty}

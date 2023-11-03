@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable curly */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Alert,
   ImageBackground,
@@ -16,7 +17,7 @@ import Texts from '../../components/Texts';
 import Buttons from '../../components/buttons';
 import {email, passwordID} from '@env';
 import {logos} from '../../assets/images';
-
+import {doLogin, resetdoLogin} from '../../services/actions/share.action';
 export const Signin = props => {
   const [errors, seterrors] = useState({});
   const [Inputs, setInputs] = useState({
@@ -61,15 +62,20 @@ export const Signin = props => {
       }
     }
   };
+  useEffect(() => {
+    if (props.logon?.status === 'success') {
+      props.navigation.replace('Home');
+    } else if (props.logon?.status === 'error') {
+      props.resetdoLogin();
+      Alert.alert('Failed', 'Account not Found!', [
+        {text: 'Close', onPress: () => props.resetdoLogin()},
+      ]);
+    }
+  }, [props.logon?.status]);
+
   const handleLogin = () => {
     if (!formValidate()) {
-      if (Inputs.email === email && Inputs.password === passwordID) {
-        props.navigation.replace('Home');
-      } else {
-        Alert.alert('Failed', 'Account not Found!', [
-          {text: 'Close', onPress: () => console.log('OK Pressed')},
-        ]);
-      }
+      props.doLogin(Inputs);
     }
   };
   return (
@@ -103,7 +109,11 @@ export const Signin = props => {
             placeholder="Enter Password"
           />
 
-          <Buttons title={'Masuk ke Akun'} onPress={handleLogin} />
+          <Buttons
+            loading={props.logon?.loading}
+            title={'Masuk ke Akun'}
+            onPress={handleLogin}
+          />
         </View>
       </ScrollView>
     </ImageBackground>
@@ -147,8 +157,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  logon: state.share,
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  doLogin,
+  resetdoLogin,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signin);

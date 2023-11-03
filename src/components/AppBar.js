@@ -6,6 +6,7 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 import React from 'react';
 import Icons from './Icons';
@@ -20,6 +21,7 @@ export default function AppBar({
   title,
   backable = false,
   onBack,
+  loading = false,
 }) {
   return (
     <>
@@ -53,12 +55,20 @@ export default function AppBar({
             placeholder="Cari Aset"
           />
           {value ? (
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={onSearchClear}
-              style={styles.icons}>
-              <Icons name={'close'} size={20} color="grey" />
-            </TouchableOpacity>
+            loading ? (
+              <ActivityIndicator
+                style={styles.icons}
+                color="grey"
+                size={'small'}
+              />
+            ) : (
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={onSearchClear}
+                style={styles.icons}>
+                <Icons name={'close'} size={20} color="grey" />
+              </TouchableOpacity>
+            )
           ) : (
             <View style={styles.icons}>
               <Icons name={'search'} size={20} color="grey" />

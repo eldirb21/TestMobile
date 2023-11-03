@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     opacity: 0.9,
   },
   text: {
+    marginTop: -100,
     color: 'grey',
   },
 });

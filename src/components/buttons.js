@@ -1,12 +1,17 @@
+/* eslint-disable react-native/no-inline-styles */
 import {TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import Texts from './Texts';
 
-export default function Buttons({title, ...props}) {
+export default function Buttons({title, loading = false, ...props}) {
   return (
-    <TouchableOpacity activeOpacity={0.7} style={styles.btn} {...props}>
+    <TouchableOpacity
+      style={{...styles.btn, backgroundColor: loading ? 'grey' : 'blue'}}
+      disabled={loading}
+      activeOpacity={0.7}
+      {...props}>
       <Texts semiBold style={styles.btnText}>
-        {title}
+        {loading ? 'Mohon tunggu' : title}
       </Texts>
     </TouchableOpacity>
   );
