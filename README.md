@@ -34,7 +34,6 @@
 
 ---
 
-
 <div style="background-color: #DEFFE1; padding: 20px;">
     <img src="screenshot/signin.png" width="20%">
     <img src="screenshot/list.png" width="20%">
@@ -45,6 +44,14 @@
 ---
 
 ## Get Started
+
+#### USER ACCESS
+
+```sh
+- email email@jsonkeeper.com
+- password @Pass123!
+
+```
 
 #### 1. Installation IOS AND ANDROID
 
