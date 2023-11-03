@@ -34,18 +34,15 @@
 
 ---
 
-<div style="border: 1px solid black; padding: 10px;">
-    <img src="screenshot/signin.png" width="20%">
-    <img src="screenshot/list.png" width="20%">
-    <img src="screenshot/detail.png" width="20%">
-    <img src="screenshot/responsive.png" width="20%">
-</div>
-<!-- <pre>
-    <img src="screenshot/signin.png" width="20%">
-    <img src="screenshot/list.png" width="20%">
-    <img src="screenshot/detail.png" width="20%">
-    <img src="screenshot/responsive.png" width="20%">
-</pre> -->
+
+<pre>
+   <div style="padding: 10px;">
+        <img src="screenshot/signin.png" width="20%">
+        <img src="screenshot/list.png" width="20%">
+        <img src="screenshot/detail.png" width="20%">
+        <img src="screenshot/responsive.png" width="20%">
+    </div>
+</pre>
 
 ---
 
