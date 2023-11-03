@@ -40,8 +40,8 @@
         <img src="screenshot/signin.png" width="20%">
         <img src="screenshot/list.png" width="20%">
         <img src="screenshot/detail.png" width="20%">
-        <img src="screenshot/responsive.png" width="20%">
     </p>
+        <img src="screenshot/responsive.png" width="20%">
 </pre>
 <hr>
 ---
