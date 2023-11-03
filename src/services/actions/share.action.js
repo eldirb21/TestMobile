@@ -8,14 +8,16 @@ import {
 
 const fetchData = () => async dispatch => {
   dispatch({type: GET_DATA_LOAD});
-  dispatch({type: GET_DATA_SUCCESS, payload: data});
+
+  //if not working api call
+  // dispatch({type: GET_DATA_SUCCESS, payload: dataSample});
 
   try {
-    // const response = await fetch(BASE_URL + 'DCQG');
-    // const data = await response.json();
-    // if (data) {
-    //   dispatch({type: GET_DATA_SUCCESS, payload: data.data});
-    // }
+    const response = await fetch(BASE_URL + 'DCQG');
+    const data = await response.json();
+    if (data) {
+      dispatch({type: GET_DATA_SUCCESS, payload: data.data});
+    }
   } catch (error) {
     dispatch({type: GET_DATA_FAILED, message: error});
   }
@@ -44,7 +46,7 @@ const doLogin = data => dispatch => {
 
 export {fetchData, fetchDataFilter, doLogin};
 
-const data = [
+const dataSample = [
   {
     symbol: 'DOGE',
     name: 'Dogecoin',
